@@ -1,18 +1,8 @@
 @extends('layouts.app')
 
 
-<!DOCTYPE html>
-<html>
-    <head>
 
-        <title>saber</title>
-
-</head>
-<body class="saberbody">
+<div class="saberbody">
     saber
-</body>
+</div>
 
-<style>
-</style>
-
-</html>

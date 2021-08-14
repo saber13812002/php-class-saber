@@ -15,10 +15,6 @@ return [
 
     'paths' => [
         resource_path('views'),
-        'paths' => [
-            
-            'paths' => "saber"
-        ]
     ],
 
     /*
