@@ -34,9 +34,16 @@ class CountryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\Response
     {
-        //
+//        dd($request->all());
+        $item = new \App\Models\Country;
+//        dd($item);
+        $item->fill($request->all());
+//        $item->name_fa=$request->name_fa;
+//        $item->name_en=$request->name_en;
+        $item->save();
+        return response($item->toArray());
     }
 
     /**
@@ -45,9 +52,10 @@ class CountryController extends Controller
      * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function show(Country $country)
+    public function show(int $id)
     {
-        //
+        $item = \App\Models\Country::query()->findOrFail($id);
+        return response($item);
     }
 
     /**
@@ -68,9 +76,13 @@ class CountryController extends Controller
      * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Country $country)
+    public function update(Request $request, int $id)
     {
-        //
+        $item = \App\Models\Country::query()->findOrFail($id);
+        $item->fill($request->all());
+
+        $item->save();
+        return response($item->toArray());
     }
 
     /**
@@ -79,8 +91,11 @@ class CountryController extends Controller
      * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Country $country)
+    public function destroy(int $id)
     {
-        //
+        $item = \App\Models\Country::query()->findOrFail($id);
+//        dd($item);
+        $item->delete();
+        return response($item->toArray());
     }
 }

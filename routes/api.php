@@ -35,4 +35,9 @@ function controller1()
 
 
 // J3 S2
-Route::get('/countries','App\Http\Controllers\CountryController@index',);
+Route::get('/countries','App\Http\Controllers\CountryController@index');
+// J4 S2
+Route::post('/countries','App\Http\Controllers\CountryController@store');
+Route::delete('/countries/{id}','App\Http\Controllers\CountryController@destroy');
+Route::get('/countries/{id}','App\Http\Controllers\CountryController@show');
+Route::put('/countries/{id}','App\Http\Controllers\CountryController@update');
