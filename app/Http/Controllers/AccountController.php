@@ -30,7 +30,7 @@ class AccountController extends Controller
         if (!Hash::check($request->password, $item->password)) {
             throw new \ErrorException('Error user and password not found');
         }
-
+dfasdfasdfasdf
         return response($item);
     }
 }
