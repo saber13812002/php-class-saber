@@ -31,6 +31,7 @@ class AccountController extends Controller
             throw new \ErrorException('Error user and password not found');
         }
 
+
         return response($item);
     }
 }
