@@ -41,3 +41,10 @@ Route::post('/countries','App\Http\Controllers\CountryController@store');
 Route::delete('/countries/{id}','App\Http\Controllers\CountryController@destroy');
 Route::get('/countries/{id}','App\Http\Controllers\CountryController@show');
 Route::put('/countries/{id}','App\Http\Controllers\CountryController@update');
+
+
+// user
+Route::group(['prefix' => 'user'], function () {
+    Route::post('/register', 'App\Http\Controllers\AccountController@register');
+    Route::post('/login', 'App\Http\Controllers\AccountController@login');
+});
