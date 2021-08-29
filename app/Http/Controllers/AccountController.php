@@ -3,18 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AccountController extends Controller
 {
-    public function register(Request $request): \Illuminate\Http\Response
+    public function register(Request $request): Response
     {
-        $item = new \App\Models\User;
-        $item->fill($request->all());
-        $item->password = Hash::make($request->password);
-        $item->save();
-        return response($item->toArray());
+        $user = new User;
+        $user->fill($request->all());
+        $user->password = Hash::make($request->password);
+        $token = Str::random(100);
+        $user->token = hash('sha256', $token);
+        $user->save();
+//
+        return response($user->toArray());
     }
 
     /**
