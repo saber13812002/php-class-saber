@@ -39,4 +39,9 @@ class AccountController extends Controller
 //
         return response($item);
     }
+
+    public function logout(Request $request)
+    {
+        dd("logout");
+    }
 }
